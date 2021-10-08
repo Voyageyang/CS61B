@@ -35,4 +35,15 @@ public class Planet {
 	public double calcForceExertedBy(Planet p) {
 		return g * this.mass * p.mass / Math.pow(this.calcDistance(p), 2);
 	}
+
+	public double calcForceExertedByX(Planet p) {
+		double cosin = (p.xxPos - this.xxPos) / this.calcDistance(p);
+		return this.calcForceExertedBy(p) * cosin;
+	}
+
+	public double calcForceExertedByY(Planet p) {
+		double sin = (p.yyPos - this.yyPos) / this.calcDistance(p);
+		return this.calcForceExertedBy(p) * sin;
+	}
+
 }
