@@ -46,4 +46,23 @@ public class Planet {
 		return this.calcForceExertedBy(p) * sin;
 	}
 
+	public double calcNetForceExertedByX(Planet[] p) {
+		double force = 0;
+		for(int i = 0; i < p.length; i++) {
+			if(p[i].equals(this)) continue;
+			force += this.calcForceExertedByX(p[i]);
+		}
+		return force;
+	}
+
+	public double calcNetForceExertedByY(Planet[] p) {
+		double force = 0;
+		for(int i = 0; i < p.length; i++) {
+			if(p[i].equals(this)) continue;
+			force += this.calcForceExertedByY(p[i]);
+		}
+		return force;
+	}
+
+
 }
