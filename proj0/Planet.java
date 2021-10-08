@@ -64,5 +64,13 @@ public class Planet {
 		return force;
 	}
 
+	public void update(double dt, double fX, double fY) {
+		double accelerationOfX = fX / this.mass;
+		double accelerationOfY = fY / this.mass;
+		this.xxVel = this.xxVel + dt * accelerationOfX;
+		this.yyVel = this.yyVel + dt * accelerationOfY;
+		this.xxPos = this.xxPos + dt * this.xxVel;
+		this.yyPos = this.yyPos + dt * this.yyVel;
+	}
 
 }
