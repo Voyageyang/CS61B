@@ -73,4 +73,10 @@ public class Planet {
 		this.yyPos = this.yyPos + dt * this.yyVel;
 	}
 
+	public void draw() {
+		StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
+
+		/* Shows the drawing to the screen, and waits 2000 milliseconds. */
+		StdDraw.show();
+	}
 }
