@@ -1,3 +1,5 @@
+package disc01;
+
 public class Fibonacci01 {
 	public static void main(String[] args) {
 		System.out.println(fib(8));

@@ -1,3 +1,5 @@
+package disc02;
+
 public class SquraingAList {
     /*public static void main(String[] args) {
 

@@ -1,3 +1,5 @@
+package disc02;
+
 public class Cat {
 	public String name;
 	public static String noise;
