@@ -24,6 +24,10 @@ public class IntList {
         return totalSize;
     }
 
+    /*public void addFirst(int x) {
+       this = new IntList(x, this);
+    }*/
+
     public int get(int i) {
         if(i == 0) return first;
         return rest.get(i - 1);
