@@ -1,5 +1,7 @@
 package _2List._2_2sllist;
 
+import java.util.Set;
+
 public class SLList {
     public static class IntNode {
         public int item;
@@ -11,18 +13,28 @@ public class SLList {
         }
     }
 
-    private IntNode first;
+    private IntNode sentinel;
+    private int size;
+
+    public SLList() {
+        sentinel = new IntNode(63, null);
+        size = 0;
+    }
 
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(63, null);
+        sentinel.next = new IntNode(x, null);
+        size = 1;
     }
 
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel.next);
+        size += 1;
     }
 
     public void addLast(int x) {
-        IntNode p = first;
+        size += 1;
+        IntNode p = sentinel;
         while(p.next != null) {
             p = p.next;
         }
@@ -46,11 +58,11 @@ public class SLList {
     }
 
     public int size() {
-        return size(first);
+        return size(sentinel.next);
     }
 
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     public static void main(String[] args) {
@@ -59,6 +71,6 @@ public class SLList {
         s.addFirst(15);
         System.out.println(s.getFirst());
         s.addLast(20);
-        System.out.println(s.size());
+        System.out.println(s.size);
     }
 }
