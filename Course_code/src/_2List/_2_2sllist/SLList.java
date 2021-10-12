@@ -4,6 +4,7 @@ import java.util.Set;
 
 public class SLList {
     public static class IntNode {
+        //public IntNode prev;
         public int item;
         public IntNode next;
 
@@ -15,6 +16,7 @@ public class SLList {
 
     private IntNode sentinel;
     private int size;
+    // private IntNode last;
 
     public SLList() {
         sentinel = new IntNode(63, null);
