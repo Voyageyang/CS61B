@@ -1,10 +1,10 @@
-public class LinkedListDeque<DataType> {
-    public class Node {
+public class LinkedListDeque<T> {
+    private class Node {
         private Node prev;
-        private DataType item;
+        private T item;
         private Node next;
 
-        public Node(Node p, DataType i, Node n) {
+        public Node(Node p, T i, Node n) {
             prev = p;
             item = i;
             next = n;
@@ -15,11 +15,14 @@ public class LinkedListDeque<DataType> {
     private Node sentinel;
 
     public LinkedListDeque() {
-        sentinel = new Node(null, null, null);
+        Node s = new Node(null, null, null);
+        sentinel = s;
+        s.next = sentinel;
+        s.prev = sentinel;
         size = 0;
     }
 
-    public void addFirst(DataType item) {
+    public void addFirst(T item) {
         Node s = new Node(null, item, null);
         if (size == 0) {
             s.next = sentinel;
@@ -35,7 +38,7 @@ public class LinkedListDeque<DataType> {
         size++;
     }
 
-    public void addLast(DataType item) {
+    public void addLast(T item) {
         Node s = new Node(null, item, null);
         if (size == 0) {
             s.next = sentinel;
@@ -70,12 +73,12 @@ public class LinkedListDeque<DataType> {
         }
     }
 
-    public DataType removeFirst() {
+    public T removeFirst() {
         if (size == 0) {
             return null;
         }
         Node s = sentinel.next;
-        DataType e = s.item;
+        T e = s.item;
         s.next.prev = sentinel;
         sentinel.next = s.next;
         s.next = null;
@@ -84,12 +87,12 @@ public class LinkedListDeque<DataType> {
         return e;
     }
 
-    public DataType removeLast() {
+    public T removeLast() {
         if (size == 0) {
             return null;
         }
         Node s = sentinel.prev;
-        DataType e = s.item;
+        T e = s.item;
         s.prev.next = sentinel;
         sentinel.prev = s.prev;
         s.next = null;
@@ -98,7 +101,7 @@ public class LinkedListDeque<DataType> {
         return e;
     }
 
-    public DataType get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size) {
             return null;
         }
@@ -112,12 +115,12 @@ public class LinkedListDeque<DataType> {
         return s.item;
     }
 
-    public DataType getRecursive(int index) {
+    public T getRecursive(int index) {
         return getRecursive(index, sentinel.next);
 
     }
 
-    public DataType getRecursive(int index, Node node) {
+    public T getRecursive(int index, Node node) {
         if (index == 0) {
             return node.item;
         }

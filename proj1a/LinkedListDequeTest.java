@@ -1,8 +1,8 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
 
-	public static boolean checkGet(int expected, int actual) {
-		if (expected != actual) {
+    public static boolean checkGet(int expected, int actual) {
+    	if (expected != actual) {
             System.out.println("get(int index) returned " + actual + ", but expected: " + expected);
             return false;
 		}
@@ -123,4 +123,4 @@ public class LinkedListDequeTest {
 		addGetTest();
 		addGetRecursiveTest();
 	}
-} 
+}
