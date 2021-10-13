@@ -1,5 +1,3 @@
-import sun.awt.image.ImageWatched;
-
 public class LinkedListDeque<DataType> {
     public class Node {
         private Node prev;
@@ -66,7 +64,7 @@ public class LinkedListDeque<DataType> {
             return;
         }
         Node s = sentinel.next;
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.println(s.item.toString());
             s = s.next;
         }
@@ -105,7 +103,7 @@ public class LinkedListDeque<DataType> {
             return null;
         }
         Node s = sentinel.next;
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (i == index) {
                 break;
             }
