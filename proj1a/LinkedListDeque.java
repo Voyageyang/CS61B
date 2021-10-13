@@ -104,11 +104,13 @@ public class LinkedListDeque<DataType> {
         return s.item;
     }
 
-    /*public DataType getRecursive(int index) {
-        if(index < 0 || index > size) return null;
-        Node s = new Node(null,null, null);
-        s = new Node(s, getRecursive(index-1),null);
+    public DataType getRecursive(int index) {
+        return getRecursive(index, sentinel.next);
 
+    }
 
-    }*/
+    public DataType getRecursive(int index, Node node) {
+        if(index == 0) return node.item;
+        return getRecursive(index - 1, node.next);
+    }
 }
