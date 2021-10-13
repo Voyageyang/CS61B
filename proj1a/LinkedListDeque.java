@@ -23,7 +23,7 @@ public class LinkedListDeque<DataType> {
 
     public void addFirst(DataType item) {
         Node s = new Node(null, item, null);
-        if(size == 0) {
+        if (size == 0) {
             s.next = sentinel;
             s.prev = sentinel;
             sentinel.next = s;
@@ -39,7 +39,7 @@ public class LinkedListDeque<DataType> {
 
     public void addLast(DataType item) {
         Node s = new Node(null, item, null);
-        if(size == 0) {
+        if (size == 0) {
             s.next = sentinel;
             s.prev = sentinel;
             sentinel.next = s;
@@ -62,7 +62,9 @@ public class LinkedListDeque<DataType> {
     }
 
     public void printDeque() {
-        if(size == 0) return ;
+        if (size == 0) {
+            return;
+        }
         Node s = sentinel.next;
         for(int i = 0; i < size; i++) {
             System.out.println(s.item.toString());
@@ -71,7 +73,9 @@ public class LinkedListDeque<DataType> {
     }
 
     public DataType removeFirst() {
-        if(size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         Node s = sentinel.next;
         DataType e = s.item;
         s.next.prev = sentinel;
@@ -83,7 +87,9 @@ public class LinkedListDeque<DataType> {
     }
 
     public DataType removeLast() {
-        if(size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         Node s = sentinel.prev;
         DataType e = s.item;
         s.prev.next = sentinel;
@@ -95,10 +101,14 @@ public class LinkedListDeque<DataType> {
     }
 
     public DataType get(int index) {
-        if(index < 0 || index > size) return null;
+        if (index < 0 || index > size) {
+            return null;
+        }
         Node s = sentinel.next;
         for(int i = 0; i < size; i++) {
-            if(i == index) break;
+            if (i == index) {
+                break;
+            }
             s = s.next;
         }
         return s.item;
@@ -110,7 +120,9 @@ public class LinkedListDeque<DataType> {
     }
 
     public DataType getRecursive(int index, Node node) {
-        if(index == 0) return node.item;
+        if (index == 0) {
+            return node.item;
+        }
         return getRecursive(index - 1, node.next);
     }
 }
