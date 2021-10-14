@@ -9,9 +9,18 @@ public class AList {
         size = 0;
     }
 
+    private void resize(int capacity) {
+        int[] a = new int[capacity];
+        System.arraycopy(items, 0, a, 0, size);
+        items = a;
+    }
+
     public void addLast(int x) {
+        if (size == items.length) {
+            resize(size + 1);
+        }
         items[size] = x;
-        size += 1;
+        size = size + 1;
     }
 
     public int getLast() {
@@ -24,6 +33,12 @@ public class AList {
 
     public int size() {
         return size;
+    }
+
+    public int removeLast() {
+        int x = getLast();
+        size -= 1;
+        return x;
     }
 
 }
