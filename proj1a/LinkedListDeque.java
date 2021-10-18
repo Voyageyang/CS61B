@@ -120,7 +120,7 @@ public class LinkedListDeque<T> {
 
     }
 
-    public T getRecursive(int index, Node node) {
+    private T getRecursive(int index, Node node) {
         if (index == 0) {
             return node.item;
         }
