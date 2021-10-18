@@ -85,8 +85,8 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        T x = items[size - 1];
-        items[size - 1] = null;
+        T x = items[(nextLast - 1 + items.length) % items.length];
+        items[(nextLast - 1 + items.length) % items.length] = null;
         size -= 1;
         nextLast = (items.length + nextLast - 1) % items.length;
         if (1.0 * size / items.length < 0.25 && items.length >= 16) {
