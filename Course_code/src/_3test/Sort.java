@@ -2,8 +2,17 @@ package _3test;
 
 public class Sort {
     public static void sort(String[] x) {
-        int smallestIndex = findSmallest(x);
-        swap(x, 0, smallestIndex);
+        sort(x, 0);
+    }
+
+    /** Sorts x starting at position start. */
+    private static void sort(String[] x, int start) {
+        if (start == x.length) {
+            return;
+        }
+        int smallestIndex = findSmallest(x, start);
+        swap(x, start, smallestIndex);
+        sort(x, start + 1);
     }
 
     /** Swap item a with b */
@@ -15,9 +24,9 @@ public class Sort {
     }
 
     /** Return the smallest String in x */
-    public static int findSmallest(String[] x) {
-        int smallestIndex = 0;
-        for (int i = 0; i < x.length; i++) {
+    public static int findSmallest(String[] x, int start) {
+        int smallestIndex = start;
+        for (int i = start; i < x.length; i++) {
             if (x[i].compareTo(x[smallestIndex]) < 0) {
                 smallestIndex = i;
             }

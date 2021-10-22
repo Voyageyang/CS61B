@@ -2,7 +2,7 @@ package _3test;
 
 public class TestSort {
     public static void testSort() {
-        String[] input = {"I", "hava", "an", "egg"};
+        String[] input = {"i", "hava", "an", "egg"};
         String[] expected = {"an", "egg", "hava", "i"};
 
         Sort.sort(input);
@@ -14,15 +14,15 @@ public class TestSort {
         String[] input = {"i", "hava", "an", "egg"};
         int expected = 2;
 
-        int actual = Sort.findSmallest(input);
+        int actual = Sort.findSmallest(input, 0);
 
         org.junit.Assert.assertEquals(expected, actual);
 
         String[] input2 = {"there", "are", "many", "pigs"};
-        int expected2 = 1;
+        int expected2 = 2;
 
-        int actual2 = Sort.findSmallest(input2);
-        org.junit.Assert.assertEquals(1, actual2);
+        int actual2 = Sort.findSmallest(input2, 2);
+        org.junit.Assert.assertEquals(expected2, actual2);
     }
 
     public static void testSwap() {
@@ -36,7 +36,7 @@ public class TestSort {
     }
 
     public static void main(String[] args) {
-        testFindSmallest();
+        testSort();
     }
 
 }
